@@ -1,0 +1,451 @@
+/* ==========================
+   ОБЩИЕ СТИЛИ
+========================== */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(120deg, #f0f2f5, #e0e7ff);
+  color: #333;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 30px auto;
+  padding: 0 20px;
+}
+
+/* ==========================
+   ЗАГОЛОВКИ
+========================== */
+h1 {
+  text-align: center;
+  font-size: 3rem;
+  margin-bottom: 50px;
+  color: #1e3a8a;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+}
+
+h2 {
+  font-size: 2rem;
+  color: #1e40af;
+  margin-bottom: 25px;
+  border-bottom: 3px solid #2563eb;
+  padding-bottom: 10px;
+  position: relative;
+}
+
+h2::after {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 3px;
+  background: linear-gradient(90deg, #2563eb, #4f46e5);
+  margin-top: 5px;
+  border-radius: 2px;
+}
+
+/* ==========================
+   СЕКЦИИ / КАРТОЧКИ
+========================== */
+.section {
+  background: #fff;
+  padding: 30px 35px;
+  margin: 30px 0;
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.section:nth-child(odd) {
+  background: linear-gradient(135deg, #e0e7ff, #f0f2f5);
+}
+
+.section:nth-child(even) {
+  background: linear-gradient(135deg, #fef3c7, #fde68a);
+}
+
+.section::before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  width: 100px;
+  height: 100px;
+  background: rgba(37,99,235,0.08);
+  border-radius: 50%;
+  z-index: 0;
+  transform: rotate(45deg);
+}
+
+.section:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+}
+
+/* ==========================
+   ЗАДАНИЯ
+========================== */
+.task {
+  background: linear-gradient(135deg, #f9fafb, #e0e7ff);
+  padding: 20px 25px;
+  margin-bottom: 20px;
+  border-radius: 15px;
+  border-left: 8px solid #2563eb;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+  transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+  position: relative;
+  z-index: 1;
+}
+
+.task:hover {
+  transform: translateY(-5px) scale(1.01);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+  background: linear-gradient(135deg, #e0e7ff, #c7d2fe);
+}
+
+.task h3 {
+  margin: 0 0 10px 0;
+  font-size: 1.2rem;
+  color: #1e3a8a;
+  display: flex;
+  align-items: center;
+}
+
+.task span {
+  font-size: 1rem;
+}
+
+.task::before {
+  content: "📝";
+  margin-right: 8px;
+}
+
+/* ==========================
+   КНОПКИ
+========================== */
+button {
+  padding: 8px 18px;
+  margin-left: 10px;
+  background: linear-gradient(135deg, #2563eb, #4f46e5);
+  border: none;
+  border-radius: 12px;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.2s, box-shadow 0.2s;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, #1e40af, #4338ca);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* ==========================
+   INPUT / TEXTAREA
+========================== */
+input[type="text"], textarea {
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 2px solid #cbd5e1;
+  font-size: 1rem;
+  transition: border 0.2s, box-shadow 0.2s;
+}
+
+input[type="text"]:focus, textarea:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 8px rgba(37,99,235,0.3);
+}
+
+/* ==========================
+   ЧЕКЛИСТ
+========================== */
+.task input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  margin-right: 12px;
+}
+
+.task.completed span {
+  text-decoration: line-through;
+  color: #6b7280;
+}
+
+/* ==========================
+   ТАБЛИЦЫ
+========================== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+table, th, td {
+  border: 1px solid #cbd5e1;
+}
+
+th, td {
+  padding: 12px;
+  text-align: left;
+}
+
+tr:nth-child(even) {
+  background-color: #f3f4f6;
+}
+
+/* ==========================
+   СПИСКИ
+========================== */
+ul {
+  padding-left: 20px;
+  list-style: disc inside;
+}
+
+li {
+  padding: 6px 0;
+  transition: color 0.2s;
+}
+
+li:hover {
+  color: #2563eb;
+  font-weight: 500;
+}
+
+/* ==========================
+   АНИМАЦИИ
+========================== */
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(15px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.section, .task {
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+/* ==========================
+   ДЕКОРАТИВНЫЕ ::BEFORE/AFTER
+========================== */
+.section::after {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  right: -15px;
+  width: 120px;
+  height: 120px;
+  background: rgba(99,102,241,0.08);
+  border-radius: 50%;
+  z-index: 0;
+  transform: rotate(-30deg);
+}
+
+.task::after {
+  content: '';
+  position: absolute;
+  bottom: 5px;
+  right: 10px;
+  width: 20px;
+  height: 20px;
+  background: rgba(37,99,235,0.15);
+  border-radius: 50%;
+}
+
+/* ==========================
+   СПЕЦИАЛЬНЫЕ ЭФФЕКТЫ ДЛЯ КАРТОЧЕК
+========================== */
+.task:nth-child(odd) {
+  border-left-color: #2563eb;
+}
+
+.task:nth-child(even) {
+  border-left-color: #4f46e5;
+}
+
+/* ==========================
+   МЕДИА ЗАПРОСЫ
+========================== */
+@media (max-width: 1024px) {
+  .container { padding: 0 15px; }
+  .section { padding: 25px; }
+  h1 { font-size: 2.5rem; }
+}
+
+@media (max-width: 768px) {
+  .section { padding: 20px; }
+  h1 { font-size: 2rem; }
+}
+/* ==========================
+   БОКОВАЯ ПАНЕЛЬ
+========================== */
+.sidebar {
+  position: fixed;
+  top: 100px; /* отступ от шапки */
+  right: 20px;
+  width: 250px;
+  max-height: 80vh;
+  background: linear-gradient(135deg, #fef3c7, #fde68a);
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+  overflow-y: auto;
+}
+
+.sidebar h3 {
+  margin-top: 0;
+  font-size: 1.5rem;
+  color: #92400e;
+  border-bottom: 2px solid #facc15;
+  padding-bottom: 8px;
+  margin-bottom: 15px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar li {
+  padding: 10px 12px;
+  margin-bottom: 8px;
+  background: #fff7ed;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+}
+
+.sidebar li span {
+  margin-left: 8px;
+}
+
+.sidebar li:hover {
+  background: linear-gradient(135deg, #fcd34d, #fbbf24);
+  color: #78350f;
+  transform: translateX(5px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
+
+/* ==========================
+   ПРИЛИПАНИЕ ПАНЕЛИ ПРИ МАЛЕНЬКОМ ЭКРАНЕ
+========================== */
+@media (max-width: 1200px) {
+  .sidebar {
+    position: static;
+    width: 100%;
+    margin-bottom: 30px;
+    max-height: none;
+  }
+}
+
+/* ==========================
+   СКРОЛЛБАР ДЛЯ ПАНЕЛИ
+========================== */
+.sidebar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+  background: #fde68a;
+  border-radius: 8px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background: #f59e0b;
+  border-radius: 8px;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+  background: #d97706;
+}
+
+.notebook-section h2 {
+  margin-bottom: 15px;
+}
+
+.notebook-container {
+  display: flex;
+  gap: 20px;
+}
+
+.notes-menu {
+  width: 250px;
+  background: #f0f4ff;
+  padding: 15px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.notes-menu input[type="text"] {
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.notes-menu button {
+  padding: 8px;
+  background: #3498db;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  border: none;
+}
+
+.notes-menu button:hover {
+  background: #2980b9;
+}
+
+.notes-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.notes-menu ul li {
+  padding: 8px;
+  margin-bottom: 5px;
+  cursor: pointer;
+  background: white;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.notes-menu ul li.active {
+  background: #3498db;
+  color: white;
+}
+
+.notes-menu ul li button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.note-editor {
+  flex: 1;
+}
+
+.note-editor textarea {
+  width: 100%;
+  height: 300px;
+  border-radius: 12px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  resize: vertical;
+  font-family: 'Segoe UI', sans-serif;
+}
